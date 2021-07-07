@@ -22,6 +22,11 @@ class Event(models.Model):
     eventStart = models.DateField()
     eventEnd = models.DateField()
 
+class Organizer(models.Model):
+    organizerID = models.AutoField(primary_key=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+
 class RequestRole(models.Model):
     requestID = models.AutoField(primary_key=True)
     setAsOrganizer = models.BooleanField(default=False)
