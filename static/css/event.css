@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #24242A;
+}
+
+li, a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    background-color: #5F85E5;
+}
+
+.logo {
+    font-family: "Righteous", cursive;
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #24242A;
+}
+
+.content-table {
+    background-color: #204858;
+    color: #FFFFFF;
+    border-collapse: collapse;
+    margin: 50px 250px;
+    font-size: 0.9em;   
+    min-width: 900px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+}
+
+.content-table thead tr {
+    font-family: "Righteous", cursive;
+    background: #204858;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+  
+.content-table th,
+.content-table td {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    padding: 10px 20px;
+    width: 20px;
+    border: 1px solid white;
+}
+
+button {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    background-color: #FBB535;
+    padding: 2.5px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FC3434;
+}
