@@ -4,8 +4,8 @@ from .models import *
 from .forms import *
 
 # Create your views here.
-class dashboardView(View):
-    template_name = "user/dashboard.html"
+class eventView(View):
+    template_name = "user/event.html"
 
     def get(self, request):
         return render(request, self.template_name)
