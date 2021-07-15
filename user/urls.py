@@ -13,4 +13,6 @@ urlpatterns = [
     path('joinList', views.joinListView.as_view(), name="joinList"),
     path('updateEvent', views.updateEventView.as_view(), name="updateEvent"),
     path('viewDetails', views.viewDetailsView.as_view(), name="viewDetails"),
+    path('requestOrganizer',views.requestOrganizerView.as_view(), name="requestOrganizer"),
+    path('requestAdmin',views.requestAdminView.as_view(), name="requestAdmin"),
 ]
