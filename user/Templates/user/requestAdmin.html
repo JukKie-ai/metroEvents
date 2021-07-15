@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/event.css' %}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METRO EVENTS</title>
+</head>
+<body>
+    <header>
+        <h2 class="logo">METRO EVENTS</h2>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">EVENTS</a></li>
+                <li><a href="#">ACCOUNT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th colspan="3">Request to be Admin</th>
+            </tr>
+            <tr>
+            <th>Name</th>
+            <th colspan="2">Confirmation</th>
+            </tr>
+        </thead>
+        {% for i in "aaaa" %}
+            <tr>
+                <td>User {{forloop.counter}}</td>
+                <td><input type="radio" name="{{forloop.counter}}">Accept <input type="radio" name="{{forloop.counter}}">Deny </td>
+                <td><button>Done</button></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> 

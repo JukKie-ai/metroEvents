@@ -56,4 +56,16 @@ class viewDetailsView(View):
     template_name = "user/viewDetails.html"
 
     def get(self, request):
+        return render(request, self.template_name)
+
+class requestOrganizerView(View):
+    template_name = "user/requestOrganizer.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class requestAdminView(View):
+    template_name = "user/requestAdmin.html"
+
+    def get(self, request):
         return render(request, self.template_name)        
