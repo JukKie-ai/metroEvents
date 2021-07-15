@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'css/event.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/viewDetails.css' %}" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,29 +21,33 @@
         </nav>
     </header>
 
-    <table class="content-table">
-        <thead>
-            <tr>
-                <th>Event</th>
-                <th>Category</th>
-                <th>Location</th>
-                <th>Event Start</th>
-                <th>Event End</th>
-                <th>Details</th>
-                <th>Join</th>
-            </tr>
-        </thead>
-        {% for i in "aa" %}
-            <tr>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td><button>View</button></td>
-                <td><button>Request</button></td>
-            </tr>
-        {% endfor %}
-    </table>
+    <div class="wrapper">
+        <div class="request">
+          <form method="post">
+            <h2>VIEW DETAILS</h2>
+            <br />
+            <br />
+            <label>Event Name: </label><br />
+            <input class="inputnormal" type="text" required="required" readonly/>
+            <br />
+            <label>Event Description: </label><br />
+            <input class="inputdesc" type="text" required="required" readonly/>
+            <br />
+            <label>Location: </label><br />
+            <input class="inputdesc" type="text" required="required" readonly/>
+            <br />
+            <label>Category: </label><br />
+            <input class="inputnormal" type="text" required="required" readonly/>
+            <br />
+            <label>Start Date: </label><br />
+            <input class="inputsmall" type="text" required="required" readonly/>
+            <br />
+            <label>End Date: </label><br />
+            <input class="inputsmall" type="text" required="required" readonly/>
+            <br /><br />
+            <div class="button">UPDATE</div>
+          </form>
+        </div>
+      </div>
 </body>
 </html>
