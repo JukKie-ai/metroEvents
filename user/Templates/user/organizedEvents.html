@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/organizedEvents.css' %}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METRO EVENTS</title>
+</head>
+<body>
+    <header>
+        <h2 class="logo">METRO EVENTS</h2>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">EVENTS</a></li>
+                <li><a href="#">ACCOUNT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<button class="buttongreen">CREATE EVENT</button>
+
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th colspan="3">EVENTS YOU ORGANIZED</th>
+            </tr>
+        </thead>
+        {% for i in "aa" %}
+            <tr>
+                <td>Event</td>
+                <td><button class="buttonorange">Edit Details</button></td>
+                <td><button class="buttonred">Cancel</button></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

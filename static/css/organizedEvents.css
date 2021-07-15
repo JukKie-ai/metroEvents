@@ -79,7 +79,7 @@ header {
     border: 1px solid white;
 }
 
-button {
+.buttonorange {
     font-family: "Montserrat", sans-serif;
     border: none;
     background-color: #FBB535;
@@ -90,6 +90,38 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.buttonorange:hover {
     background-color: #FC3434;
+}
+
+.buttonred {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    background-color: #FC3434;
+    padding: 2.5px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.buttonred:hover {
+    background-color: #FBB535;
+}
+
+.buttongreen {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    background-color: #45fb35;
+    padding: 2.5px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 100px;
+    margin-top: 80px;
+}
+
+.buttongreen:hover {
+    background-color: #b6fb35;
 }
