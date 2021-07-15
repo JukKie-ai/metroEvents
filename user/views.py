@@ -21,3 +21,39 @@ class registerView(View):
 
     def get(self, request):
         return render(request, self.template_name)
+
+class organizedEventsView(View):
+    template_name = "user/organizedEvents.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class createEventView(View):
+    template_name = "user/createEvent.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class requestJoinView(View):
+    template_name = "user/requestJoin.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class joinListView(View):
+    template_name = "user/joinList.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class updateEventView(View):
+    template_name = "user/updateEvent.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class viewDetailsView(View):
+    template_name = "user/viewDetails.html"
+
+    def get(self, request):
+        return render(request, self.template_name)        
