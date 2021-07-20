@@ -2,13 +2,21 @@ from django.shortcuts import render
 from django.views.generic.base import View
 from .models import *
 from .forms import *
+from .filters import EventFilter
 
 # Create your views here.
 class eventView(View):
     template_name = "user/event.html"
 
     def get(self, request):
-        return render(request, self.template_name)
+        eventList = Event.objects.all()
+
+        myFilter = EventFilter(request.GET, queryset=eventList)
+        eventList = myFilter.qs
+
+        context = {'eventList':eventList, 'myFilter':myFilter}
+
+        return render(request, self.template_name, context)
 
 class loginView(View):
     template_name = "user/login.html"

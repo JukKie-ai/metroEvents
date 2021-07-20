@@ -21,6 +21,11 @@
         </nav>
     </header>
 
+    <form method="get">
+        {{myFilter.form}}
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+
     <table class="content-table">
         <thead>
             <tr>
@@ -33,13 +38,13 @@
                 <th>Join</th>
             </tr>
         </thead>
-        {% for i in "aa" %}
+        {% for i in eventList %}
             <tr>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td>Sample</td>
+                <td>{{i.eventName}}</td>
+                <td>{{i.eventCategory}}</td>
+                <td>{{i.eventLocation}}</td>
+                <td>{{i.eventStart}}</td>
+                <td>{{i.eventEnd}}</td>
                 <td><button>View</button></td>
                 <td><button>Request</button></td>
             </tr>
