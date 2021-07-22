@@ -21,7 +21,7 @@
         </nav>
     </header>
 
-<button class="buttongreen">CREATE EVENT</button>
+<a href="/metroevents/createEvent"><button class="buttongreen">CREATE EVENT</button></a>
 
     <table class="content-table">
         <thead>
@@ -32,7 +32,7 @@
         {% for i in "aa" %}
             <tr>
                 <td>Event</td>
-                <td><button class="buttonorange">Edit Details</button></td>
+                <td><a href="/metroevents/updateEvent"><button class="buttonorange">Edit Details</button></a></td>
                 <td><button class="buttonred">Cancel</button></td>
             </tr>
         {% endfor %}

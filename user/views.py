@@ -31,17 +31,28 @@ class organizedEventsView(View):
 class createEventView(View):
     template_name = "user/createEvent.html"
 
-    def get(self, request):
-        return render(request, self.template_name)
+    def get(self, request, user):
+        formCreateEvent = CreateEventForm()
+        return render(request, self.template_name, {'user': user})
+
+    def post(self, request, user):
+
+        eventName = request.POST.get('eventName')
+        eventDescription = request.POST.get('eventDescription')
+        eventCategory = request.POST.get('eventCategory')
+        eventStart = request.POST.get('eventStart')
+        eventEnd = request.POST.get('eventEnd')
+        username = User.objects.get(pk=user)
+
+        createEvent = Event(eventName=eventName, eventDescription=eventDescription, eventCategory=eventCategory,
+                            eventStart=eventStart, eventEnd=eventEnd, username=username)
+
+        createEvent.save()
+
+        return render(request, self.template_name, {'createEvent': createEvent})
 
 class requestJoinView(View):
     template_name = "user/requestJoin.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-
-class joinListView(View):
-    template_name = "user/joinList.html"
 
     def get(self, request):
         return render(request, self.template_name)
