@@ -4,9 +4,10 @@ from django.urls import path
 app_name = 'user'
 
 urlpatterns = [
-    path('event', views.eventView.as_view(), name="event"),
     path('login', views.loginView.as_view(), name="login"),
     path('register', views.registerView.as_view(), name="register"),
+    path('<user>/home', views.homeView.as_view(), name="home"),
+    path('event', views.eventView.as_view(), name="event"),
     path('organizedEvents', views.organizedEventsView.as_view(), name="organizedEvents"),
     path('createEvent', views.createEventView.as_view(), name="createEvent"),
     path('requestJoin', views.requestJoinView.as_view(), name="requestJoin"),
