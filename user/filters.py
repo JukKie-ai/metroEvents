@@ -8,4 +8,5 @@ class EventFilter(django_filters.FilterSet):
         model = Event
         fields = [
             'eventName',
+            'eventCategory',
         ]
