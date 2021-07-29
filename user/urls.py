@@ -13,4 +13,5 @@ urlpatterns = [
     path('joinList', views.joinListView.as_view(), name="joinList"),
     path('updateEvent', views.updateEventView.as_view(), name="updateEvent"),
     path('viewDetails', views.viewDetailsView.as_view(), name="viewDetails"),
+    path('roleRequest',views.roleRequestView.as_view(), name="roleRequest"),
 ]

@@ -21,32 +21,21 @@
         </nav>
     </header>
 
-    <form method="get">
-        {{myFilter.form}}
-        <button class="btn btn-primary" type="submit">Search</button>
-    </form>
-
     <table class="content-table">
         <thead>
             <tr>
-                <th>Event</th>
-                <th>Category</th>
-                <th>Location</th>
-                <th>Event Start</th>
-                <th>Event End</th>
-                <th>Details</th>
-                <th>Join</th>
+                <th colspan="3">Role Requests</th>
+            </tr>
+            <tr>
+            <th>Name</th>
+            <th colspan="2">Confirmation</th>
             </tr>
         </thead>
-        {% for i in eventList %}
+        {% for i in "aaaa" %}
             <tr>
-                <td>{{i.eventName}}</td>
-                <td>{{i.eventCategory}}</td>
-                <td>{{i.eventLocation}}</td>
-                <td>{{i.eventStart}}</td>
-                <td>{{i.eventEnd}}</td>
-                <td><button>View</button></td>
-                <td><button>Request</button></td>
+                <td>User {{forloop.counter}}</td>
+                <td><input type="checkbox" name="{{forloop.counter}}">Admin <input type="checkbox" name="{{forloop.counter}}">Organizer </td>
+                <td><button>Accept</button>&nbsp;<button>Deny</button></td>
             </tr>
         {% endfor %}
     </table>

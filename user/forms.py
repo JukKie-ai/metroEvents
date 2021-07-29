@@ -13,8 +13,6 @@ class UserForm(forms.ModelForm):
             "lastName"
         ]
 
-
-
 class LoginForm(forms.ModelForm):
     class Meta:
         model = User
@@ -22,3 +20,9 @@ class LoginForm(forms.ModelForm):
             "username",
             "password"
         ]
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = '__all__'
+
