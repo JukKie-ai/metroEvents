@@ -23,15 +23,27 @@
           <h2 class="active" align="center"> Sign In </h2>
           
       
-          <!-- Icon -->
+          
           <div class="fadeIn first">
             
           </div>
       
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+          <form method="post">
+            {% csrf_token %}
+            <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="error-messages">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+
             <input type="submit" class="fadeIn fourth" value="Log In">
           </form>
       
