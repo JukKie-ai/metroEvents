@@ -6,17 +6,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Metro Events</title>
 </head>
 <body>
     <header>
         <h2 class="logo">METRO EVENTS</h2>
         <nav>
             <ul class="nav_links">
-                <li><a href="#">HOME</a></li>
+                <li><a href="{% url 'user:home' user%}">HOME</a></li>
                 <li><a href="#">ABOUT</a></li>
-                <li><a href="#">EVENTS</a></li>
-                <li><a href="#">ACCOUNT</a></li>
+                <li><a href="{% url 'user:event' user %}">EVENTS</a></li>
+                <li><a href="{% url 'user:login' %}">LOG OUT</a></li>
             </ul>
         </nav>
     </header>

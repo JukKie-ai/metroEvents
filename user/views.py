@@ -12,7 +12,6 @@ class registerView(View):
     template_name = "user/register.html"
 
     def get(self, request, ):
-        formUser = UserForm()
         return render(request, self.template_name)
 
     def post(self, request):
@@ -37,11 +36,9 @@ class loginView(View):
     template_name = "user/login.html"
 
     def get(self, request):
-        #form = LoginForm()
         return render(request, self.template_name)
 
     def post(self, request):
-        #form = LoginForm(request.POST)
         uname = request.POST.get('username')
         pwd = request.POST.get('password')
 
@@ -66,15 +63,37 @@ class homeView(View):
 class eventView(View):
     template_name = "user/event.html"
 
-    def get(self, request):
+    def get(self, request, user):
         eventList = Event.objects.all()
 
         myFilter = EventFilter(request.GET, queryset=eventList)
         eventList = myFilter.qs
 
-        context = {'eventList':eventList, 'myFilter':myFilter}
+        context = {'user':user, 'eventList':eventList, 'myFilter':myFilter}
 
         return render(request, self.template_name, context)
+
+def viewDetailsView(request, id, user):
+    event = Event.objects.get(pk=id)
+
+    context = {'user':user, 'event':event}
+    return render(request, 'user/viewDetails.html', context)
+
+def joinEventView(request, id, user):
+    event = Event.objects.get(pk=id)
+    username = User.objects.get(pk=user)
+
+    context = {'user':user, 'event':event, 'username':username}
+
+    if request.method == 'POST':
+        requestForm = RequestEvent(status=False, username=username, eventID=event)
+
+        requestForm.save()
+        return render(request, 'user/joinEvent.html', context)
+
+    return render(request, 'user/joinEvent.html', context)
+
+
 
 class organizedEventsView(View):
     template_name = "user/organizedEvents.html"
@@ -105,12 +124,6 @@ class updateEventView(View):
 
     def get(self, request):
         return render(request, self.template_name)
-
-class viewDetailsView(View):
-    template_name = "user/viewDetails.html"
-
-    def get(self, request):
-        return render(request, self.template_name)    
 
 class roleRequestView(View):
     template_name = "user/roleRequest.html"
