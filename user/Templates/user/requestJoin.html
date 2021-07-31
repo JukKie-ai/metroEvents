@@ -21,26 +21,23 @@
         </nav>
     </header>
 
-    <div class="wrapper">
-        <div class="request">
-          <form method="post">
-            <h2>REQUESTING TO JOIN EVENT</h2>
-            <br />
-            <br />
-            <label>User: </label><br />
-            <h4>Sample User</h4>
-            <br />
-            <br />
-            <label>Confirmation: </label>
-            <br />
-            <br />
-            <input type="radio" name="confirm">Accept</input>
-            <input type="radio" name="confirm">Reject</input>
-            <br />
-            <br />
-            <div class="button">DONE</div>
-          </form>
-        </div>
-      </div>
+    <table class="content-table">
+      <thead>
+          <tr>
+              <th colspan="3">Requesting to Join Event</th>
+          </tr>
+          <tr>
+          <th>Name</th>
+          <th>Events</th>
+          <th colspan="2">Confirmation</th>
+          </tr>
+      </thead>
+          <tr>
+              <td>User</td>
+              <td>Event</td>
+              <td><input type="checkbox" name="check">Admin<input type="checkbox" name="check">Organizer</td>
+              <td><button>Accept</button>&nbsp;<button>Deny</button></td>
+          </tr>
+  </table>
 </body>
 </html>

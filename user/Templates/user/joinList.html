@@ -24,13 +24,15 @@
     <table class="content-table">
         <thead>
             <tr>
-                <th colspan="2">LIST OF REQUESTING TO JOIN</th>
+                <th colspan="4">LIST OF REQUESTING TO JOIN</th>
             </tr>
         </thead>
-        {% for i in "aa" %}
+        {% for i in obj %}
             <tr>
-                <td>User XD</td>
-                <td><button>View</button></td>
+                <td>{{i.username}}</td>
+                <td>{{i.eventName}}</td>
+                <td><input type="checkbox" name="check">Accept<input type="checkbox" name="check">Reject</td>
+                <td><button>Accept</button>&nbsp;<button>Deny</button></td>
             </tr>
         {% endfor %}
     </table>

@@ -22,32 +22,39 @@
     </header>
 
     <div class="wrapper">
-        <div class="request">
-          <form method="post">
-            <h2>UPDATE DETAILS</h2>
-            <br />
-            <br />
-            <label>Event Name: </label><br />
-            <input class="inputnormal" type="text" required="required" />
-            <br />
-            <label>Event Description: </label><br />
-            <input class="inputdesc" type="text" required="required" />
-            <br />
-            <label>Location: </label><br />
-            <input class="inputdesc" type="text" required="required" />
-            <br />
-            <label>Category: </label><br />
-            <input class="inputnormal" type="text" required="required" />
-            <br />
-            <label>Start Date: </label><br />
-            <input class="inputsmall" type="text" required="required" />
-            <br />
-            <label>End Date: </label><br />
-            <input class="inputsmall" type="text" required="required" />
-            <br /><br />
-            <div class="button">UPDATE</div>
-          </form>
-        </div>
+      <div class="request">
+        <form method="post">
+          {% csrf_token %}
+          <h2>UPDATE EVENT</h2>
+          <br />
+          <br />
+          <label>Event Name: </label><br />
+          <input class="inputnormal" type="text" name="eventName" value='{{event.eventName}}' required="required" />
+          <br />
+          <label>Event Description: </label><br />
+          <input class="inputdesc" type="text" name="eventDescription" value='{{event.eventDescription}}' required="required" />
+          <br />
+          <label>Location: </label><br />
+          <input class="inputdesc" type="text" name="eventLocation" value='{{event.eventLocation}}' required="required" />
+          <br />
+          <label>Category: </label><br />
+          <select required name="eventCategory" value='{{event.eventCategory}}'>
+            <option value="">Choose Category</option>
+            <option value="Seminars">Seminars</option>
+            <option value="Conferences">Conferences</option>
+            <option value="Trade Shows">Trade Shows</option>
+            <option value="Workshops">Workshops</option>
+          </select>
+          <br />
+          <label>Start Date: </label><br />
+          <input class="inputsmall" type="text" name="eventStart" value='{{event.eventStart}}' required="required" />
+          <br />
+          <label>End Date: </label><br />
+          <input class="inputsmall" type="text" name="eventEnd" value='{{event.eventEnd}}' required="required" />
+          <br /><br />
+          <input type="submit" value="UPDATE" />
+        </form>
       </div>
+    </div>
 </body>
 </html>

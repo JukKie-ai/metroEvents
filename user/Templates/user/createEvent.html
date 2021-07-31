@@ -20,32 +20,39 @@
             </ul>
         </nav>
     </header>
-
+    
     <div class="wrapper">
         <div class="request">
           <form method="post">
+            {% csrf_token %}
             <h2>CREATE EVENT</h2>
             <br />
             <br />
             <label>Event Name: </label><br />
-            <input class="inputnormal" type="text" required="required" />
+            <input class="inputnormal" type="text" name="eventName" required="required" />
             <br />
             <label>Event Description: </label><br />
-            <input class="inputdesc" type="text" required="required" />
+            <input class="inputdesc" type="text" name="eventDescription" required="required" />
             <br />
             <label>Location: </label><br />
-            <input class="inputdesc" type="text" required="required" />
+            <input class="inputdesc" type="text" name="eventLocation" required="required" />
             <br />
             <label>Category: </label><br />
-            <input class="inputnormal" type="text" required="required" />
+            <select required name="eventCategory">
+              <option value="">Choose Category</option>
+              <option value="Seminars">Seminars</option>
+              <option value="Conferences">Conferences</option>
+              <option value="Trade Shows">Trade Shows</option>
+              <option value="Workshops">Workshops</option>
+            </select>
             <br />
             <label>Start Date: </label><br />
-            <input class="inputsmall" type="text" required="required" />
+            <input class="inputsmall" type="text" name="eventStart" required="required" />
             <br />
             <label>End Date: </label><br />
-            <input class="inputsmall" type="text" required="required" />
+            <input class="inputsmall" type="text" name="eventEnd" required="required" />
             <br /><br />
-            <div class="button">CREATE</div>
+            <input type="submit" value="CREATE" />
           </form>
         </div>
       </div>

@@ -53,6 +53,7 @@ header {
     font-family: "Montserrat", sans-serif;
     border: none;
     background-color: #FBB535;
+    color: #000;
     padding: 5px;
     border-radius: 3px;
     text-align: center;
@@ -66,15 +67,15 @@ header {
 }
   
 .request {
-    margin-top: 10px;
+    margin-top: 3%;
     box-sizing: border-box;
-    background-color: white;
+    background-color: #204858;
+    color: #FFFFFF;
     position: absolute;
     left: 350px;
     max-width: 700px;
-    height: 580px;
+    height: 500px;
     width: 100%;
-    background-color: #fff;
     padding: 20px 30px;
     border-radius: 15px;
     border: 1px solid #5F85E5;
@@ -121,16 +122,16 @@ header {
     padding: 8px;
   }
   
-  label {
-    font-size: 14px;
-    font-weight: 400;
-  }
+label {
+  font-size: 14px;
+  font-weight: 400;
+}
   
-  .space {
-    margin-top: 10px;
-  }
+.space {
+  margin-top: 10px;
+}
   
-  select {
+select {
     width: 155px;
     border: 1px solid #aaa;
     border-radius: 5px;
@@ -138,7 +139,23 @@ header {
     padding: 8px;
   }
   
-  input[type="file"] {
+input[type="file"] {
     display: none;
   }
-  
+
+  form input[type="submit"] {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    background-color: #FBB535;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 550px;
+  }
+
+  form input[type="submit"]:hover {
+    /* transform: scale(0.99); */
+    background-color: #FC3434;
+  }

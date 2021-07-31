@@ -142,3 +142,20 @@ select {
 input[type="file"] {
     display: none;
   }
+
+  form input[type="submit"] {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    background-color: #FBB535;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 550px;
+  }
+
+  form input[type="submit"]:hover {
+    /* transform: scale(0.99); */
+    background-color: #FC3434;
+  }

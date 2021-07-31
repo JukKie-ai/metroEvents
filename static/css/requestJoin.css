@@ -49,80 +49,47 @@ header {
     color: #24242A;
 }
 
-.button {
+.content-table {
+    background-color: #204858;
+    color: #FFFFFF;
+    border-collapse: collapse;
+    margin: 50px 250px;
+    font-size: 0.9em;   
+    min-width: 900px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+}
+
+.content-table thead tr {
+    font-family: "Righteous", cursive;
+    background: #204858;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+  
+.content-table th,
+.content-table td {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    padding: 10px 20px;
+    width: 20px;
+    border: 1px solid white;
+}
+
+button {
     font-family: "Montserrat", sans-serif;
     border: none;
     background-color: #FBB535;
-    padding: 5px;
+    padding: 2.5px;
     border-radius: 3px;
     text-align: center;
     display: inline-block;
     cursor: pointer;
-    margin-left: 550px;
 }
 
-.button:hover {
+button:hover {
     background-color: #FC3434;
 }
-  
-.request {
-    margin-top: 10px;
-    box-sizing: border-box;
-    background-color: white;
-    position: absolute;
-    left: 350px;
-    max-width: 700px;
-    height: 580px;
-    width: 100%;
-    background-color: #fff;
-    padding: 20px 30px;
-    border-radius: 15px;
-    border: 1px solid #5F85E5;
-    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.15);
-    font-family: "Montserrat", sans-serif;
-  }
-
-  h2 {
-    text-align: center;
-  }
-  
-  h4 {
-    padding-top: 10px;
-    padding-left: 30px;
-  }
-  p {
-    padding-left: 42px;
-    padding-right: 42px;
-    font-size: 12px;
-    text-align: justify;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    margin: 1px 0;
-    padding: 8px;
-  }
-  
-  label {
-    font-size: 14px;
-    font-weight: 400;
-  }
-  
-  .space {
-    margin-top: 10px;
-  }
-  
-  select {
-    width: 155px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    margin: 1px 0;
-    padding: 8px;
-  }
-  
-  input[type="file"] {
-    display: none;
-  }
-  

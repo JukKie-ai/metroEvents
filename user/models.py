@@ -13,19 +13,19 @@ class Administrator(models.Model):
     adminID = models.AutoField(primary_key=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
+class Organizer(models.Model):
+    organizerID = models.AutoField(primary_key=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+
 class Event(models.Model):
     eventID = models.AutoField(primary_key=True)
     eventName = models.CharField(max_length=50)
     eventDescription = models.TextField()
     eventCategory = models.CharField(choices=EVENT_CHOICES, max_length=100)
     eventLocation = models.CharField(max_length=100)
-    eventStart = models.DateField()
-    eventEnd = models.DateField()
-
-class Organizer(models.Model):
-    organizerID = models.AutoField(primary_key=True)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    eventStart = models.CharField(max_length=100)
+    eventEnd = models.CharField(max_length=100)
+    organizerID = models.ForeignKey(Organizer, on_delete=models.CASCADE)
 
 class RequestRole(models.Model):
     requestID = models.AutoField(primary_key=True)
