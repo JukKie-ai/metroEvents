@@ -12,3 +12,25 @@ class roleForm(forms.ModelForm):
         model = RequestRole
         fields = '__all__'
         
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            "username",
+            "password",
+            "firstName",
+            "lastName"
+        ]
+
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            "username",
+            "password"
+        ]
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = '__all__'
