@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'css/event.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/roleRequest.css' %}" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,11 +31,46 @@
             <th colspan="2">Confirmation</th>
             </tr>
         </thead>
-        {% for i in "aaaa" %}
-            <tr>
-                <td>User {{forloop.counter}}</td>
-                <td><input type="checkbox" name="{{forloop.counter}}">Admin <input type="checkbox" name="{{forloop.counter}}">Organizer </td>
-                <td><button>Accept</button>&nbsp;<button>Deny</button></td>
+        {% for i in rq %}
+            <tr><form method=POST>
+                {% csrf_token %}
+                <td><input type=hidden name="request_id" id="request_id" value={{i.requestID}}>{{i.username_id}}</td>
+                <td>
+                <input type="checkbox" name="orgReq"
+                {% if i.setAsOrganizer%}
+                value="1"
+                 checked
+                {%else%}
+                value="0"
+                {%endif%}>Organizer 
+
+                <input type="checkbox" name="adminReq"
+                {% if i.setAsAdministrator%}
+                value="1"
+                 checked
+                {%else%}
+                value="0"
+                {%endif%}>Administrator 
+                </td>
+
+                <td>
+                <button type="submit" name="AcceptBtn">Accept</button>
+                &nbsp;
+                <button onclick="document.getElementById('id01').style.display='block'"><a href="#">Delete</button>
+                    <div id="id01" class="modal">
+                        <div class="container">
+                            <h1>Delete Request</h1>
+                                <p>Are you sure you want to delete this Request?</p>
+
+                                  <div class="clearfix">
+                                    <button type="button" class="cancelbtn" onclick="document.getElementById('id01').style.display='none'">Cancel</button>
+                                    <button type="submit" class="deletebtn" name="DenyBtn">Delete</button>
+                                  </div>
+                                </div>
+                              </div>
+                    </div>
+                </form>
+                </td>
             </tr>
         {% endfor %}
     </table>
