@@ -3,6 +3,11 @@ from django.views.generic.base import View
 from .models import *
 from .forms import *
 
+from django.db import connections
+from django.db import connection
+import MySQLdb
+
+
 # Create your views here.
 class eventView(View):
     template_name = "user/event.html"
@@ -60,8 +65,29 @@ class viewDetailsView(View):
 
 class roleRequestView(View):
     template_name = "user/roleRequest.html"
-
+    
     def get(self, request):
-        return render(request, self.template_name)
+        rq = RequestRole.objects.all()
+        return render(request, self.template_name,{'rq': rq})
+    
+    def post(self, request):
+        if request.method == "POST":
+            rq = RequestRole.objects.all()
+            if 'AcceptBtn' in request.POST:
+                reqID = request.POST.get("request_id")
 
-     
+                if 'orgReq' in request.POST:
+                    organizerReq = 1
+                else:
+                    organizerReq = 0
+
+                if 'adminReq' in request.POST:
+                    administratorReq = 1
+                else:
+                    administratorReq = 0
+
+                update_request = RequestRole.objects.filter(requestID = reqID).update(setAsOrganizer = organizerReq, setAsAdministrator = administratorReq)
+            if 'DenyBtn' in request.POST:
+                reqID = request.POST.get("request_id")
+                delete_request = RequestRole.objects.filter(requestID = reqID).delete()
+        return render(request, self.template_name,{'rq': rq})
