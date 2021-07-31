@@ -13,10 +13,10 @@
         <h2 class="logo">METRO EVENTS</h2>
         <nav>
             <ul class="nav_links">
-                <li><a href="#">HOME</a></li>
+                <li><a href="{% url 'user:home' user %}">HOME</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="#">EVENTS</a></li>
-                <li><a href="#">ACCOUNT</a></li>
+                <li><a href="{% url 'user:login' %}">LOG OUT</a></li>
             </ul>
         </nav>
     </header>
@@ -48,8 +48,8 @@
                 <td>{{i.eventLocation}}</td>
                 <td>{{i.eventStart}}</td>
                 <td>{{i.eventEnd}}</td>
-                <td><button>View</button></td>
-                <td><button>Request</button></td>
+                <td><a href="viewDetails/{{i.eventID}}"><button>View</button></a></td>
+                <td><a href="joinEvent/{{i.eventID}}"><button>Request</button></a></td>
             </tr>
         {% endfor %}
     </table>

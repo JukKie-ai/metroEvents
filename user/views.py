@@ -8,30 +8,92 @@ from django.contrib import messages
 from .filters import EventFilter
 
 # Create your views here.
-class eventView(View):
-    template_name = "user/event.html"
+class registerView(View):
+    template_name = "user/register.html"
 
-    def get(self, request):
-        eventList = Event.objects.all()
+    def get(self, request, ):
+        return render(request, self.template_name)
 
-        myFilter = EventFilter(request.GET, queryset=eventList)
-        eventList = myFilter.qs
+    def post(self, request):
+        formUser = UserForm(request.POST)
+        uname = request.POST.get('username')
+        password = request.POST.get('password')
+        confirmPassword = request.POST.get('confirmPassword')
 
-        context = {'eventList':eventList, 'myFilter':myFilter}
+        if User.objects.filter(pk=uname).count() != 0:
+            messages.error(request, "Username already exist!")
+        elif confirmPassword != password:
+            messages.error(request, "Password doesn't match.")
+        else:
+            customer = formUser.save(commit=False)
+            customer.save()
+            return redirect(reverse('user:login'))
 
-        return render(request, self.template_name, context)
+        return render(request, self.template_name)
 
 class loginView(View):
+
     template_name = "user/login.html"
 
     def get(self, request):
         return render(request, self.template_name)
 
-class registerView(View):
-    template_name = "user/register.html"
+    def post(self, request):
+        uname = request.POST.get('username')
+        pwd = request.POST.get('password')
 
-    def get(self, request):
+        if User.objects.filter(pk=uname).count() != 0:
+            account = User.objects.get(pk=uname)
+
+            if account.password == pwd:
+                return redirect(reverse('user:home', kwargs={'user': uname}))
+            else:
+                messages.error(request, 'Incorrect Password')
+        else:
+            messages.error(request, 'Username Does Not Exist')
+
         return render(request, self.template_name)
+
+class homeView(View):
+    template_name = "user/home.html"
+
+    def get(self, request, user):
+        return render(request, self.template_name, {'user': user})
+
+class eventView(View):
+    template_name = "user/event.html"
+
+    def get(self, request, user):
+        eventList = Event.objects.all()
+
+        myFilter = EventFilter(request.GET, queryset=eventList)
+        eventList = myFilter.qs
+
+        context = {'user':user, 'eventList':eventList, 'myFilter':myFilter}
+
+        return render(request, self.template_name, context)
+
+def viewDetailsView(request, id, user):
+    event = Event.objects.get(pk=id)
+
+    context = {'user':user, 'event':event}
+    return render(request, 'user/viewDetails.html', context)
+
+def joinEventView(request, id, user):
+    event = Event.objects.get(pk=id)
+    username = User.objects.get(pk=user)
+
+    context = {'user':user, 'event':event, 'username':username}
+
+    if request.method == 'POST':
+        requestForm = RequestEvent(status=False, username=username, eventID=event)
+
+        requestForm.save()
+        return render(request, 'user/joinEvent.html', context)
+
+    return render(request, 'user/joinEvent.html', context)
+
+
 
 class organizedEventsView(View):
     template_name = "user/organizedEvents.html"
@@ -61,71 +123,6 @@ class updateEventView(View):
     template_name = "user/updateEvent.html"
 
     def get(self, request):
-        return render(request, self.template_name)
-
-class viewDetailsView(View):
-    template_name = "user/viewDetails.html"
-
-    def get(self, request):
-        return render(request, self.template_name)    
-
-
-class loginView(View):
-
-    template_name = "user/login.html"
-
-    def get(self, request):
-        form = LoginForm()
-        return render(request, self.template_name)
-
-    def post(self, request):
-        form = LoginForm(request.POST)
-        uname = request.POST.get('username')
-        pwd = request.POST.get('password')
-
-        if User.objects.filter(pk=uname).count() != 0:
-            account = User.objects.get(pk=uname)
-
-            if account.password == pwd:
-                return redirect(reverse('user:Home', kwargs={'user': uname}))
-            else:
-                messages.error(request, 'Incorrect Password')
-        else:
-            messages.error(request, 'Username Does Not Exist')
-
-        return render(request, self.template_name)
-
-class registerView(View):
-    template_name = "user/register.html"
-
-    def get(self, request):
-        formUser = UserForm()
-        return render(request, self.template_name)
-
-    def post(self, request):
-        formUser = UserForm(request.POST)
-        uname = request.POST.get('username')
-        password = request.POST.get('password')
-        confirmPassword = request.POST.get('confirmPassword')
-
-        #if len(uname) < 4 and len(password) < 8:
-            #messages.error(request, "Username and Password are too short.")
-        #if User.objects.filter(pk=uname).count() != 0 and len(password) < 8:
-            #messages.error(
-            #request, "Username already exist and Password is too short.")
-        #elif len(uname) < 4:
-            #messages.error(request, "Username is too short.")
-        if User.objects.filter(pk=uname).count() != 0:
-            messages.error(request, "Username already exist!")
-        #elif len(password) < 8:
-            #messages.error(request, "Password is too short.")
-        elif confirmPassword != password:
-            messages.error(request, "Password doesn't match.")
-        else:
-            customer = formUser.save(commit=False)
-            customer.save()
-            return redirect(reverse('user:login'))
-
         return render(request, self.template_name)
 
 class roleRequestView(View):

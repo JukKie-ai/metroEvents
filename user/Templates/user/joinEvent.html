@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'css/joinEvent.css' %}" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h2 class="logo">METRO EVENTS</h2>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="{% url 'user:home' user %}">HOME</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="{% url 'user:event' user %}">EVENTS</a></li>
+          <li><a href="{% url 'user:login' %}">LOG OUT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="wrapper">
+      <div class="request">
+        <form method="POST">
+          {% csrf_token %}
+          <h2>JOIN EVENT</h2>
+          <br />
+          <br />
+          <h3>You're about to join the event called {{event.eventName}}. Please click the button below to continue.</h3>
+          <br />
+          <br /><br />
+          <div>
+            <input type="submit" class="button1" value="SUBMIT REQUEST"/>
+            <a href="{% url 'user:event' user%}"
+              ><div class="button">BACK</div></a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

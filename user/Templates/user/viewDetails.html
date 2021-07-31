@@ -28,24 +28,24 @@
             <br />
             <br />
             <label>Event Name: </label><br />
-            <input class="inputnormal" type="text" required="required" readonly/>
+            <input class="inputnormal" type="text" required="required" placeholder="{{event.eventName}}" readonly/>
             <br />
             <label>Event Description: </label><br />
-            <input class="inputdesc" type="text" required="required" readonly/>
+            <input class="inputdesc" type="text" required="required" placeholder="{{event.eventDescription}}" readonly/>
             <br />
             <label>Location: </label><br />
-            <input class="inputdesc" type="text" required="required" readonly/>
+            <input class="inputdesc" type="text" required="required" placeholder="{{event.eventLocation}}" readonly/>
             <br />
             <label>Category: </label><br />
-            <input class="inputnormal" type="text" required="required" readonly/>
+            <input class="inputnormal" type="text" required="required" placeholder="{{event.eventCategory}}" readonly/>
             <br />
             <label>Start Date: </label><br />
-            <input class="inputsmall" type="text" required="required" readonly/>
+            <input class="inputsmall" type="text" required="required" placeholder="{{event.eventStart}}" readonly/>
             <br />
             <label>End Date: </label><br />
-            <input class="inputsmall" type="text" required="required" readonly/>
+            <input class="inputsmall" type="text" required="required" placeholder="{{event.eventEnd}}" readonly/>
             <br /><br />
-            <div class="button">BACK</div>
+            <a href="{% url 'user:event' user%}"><div class="button">BACK</div></a>
           </form>
         </div>
       </div>
