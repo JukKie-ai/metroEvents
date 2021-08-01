@@ -96,20 +96,25 @@ class joinListView(View):
 
         if Organizer.objects.filter(username=user).count() != 0:
             account = Organizer.objects.get(username=user)
-            obj = User.objects.all()
             
-            if Organizer.objects.filter(username=user).count() != 0:
-                account = Organizer.objects.get(username=user)
-                obj2 = Event.objects.all() 
-            else:
-                account = 0
-                obj = 0
-                obj2 = '0'
+            if User.objects.filter(username=user).count() != 0:
+                obj = User&Event.objects.get('', '')
+        else:
+            account = 0
+            obj = '0'
 
-        return render(request, self.template_name, {'obj':obj, 'obj2':obj2,'account': account})
+        return render(request, self.template_name, {'obj':obj, 'account': account})
 
     def post(self, request, user):
-        status = RequestEvent.objects.get()
+        if request.method == "POST":
+            if 'acceptBtn' in request.POST:
+                status = True
+            else:
+                'rejectBtn' in request.POST
+                status = False
+
+        return render(request, self.template_name, {'status': status})
+        
 
 
 def updateEventView(request, id, user):

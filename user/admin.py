@@ -6,4 +6,5 @@ from .models import *
 admin.site.register(Event)
 admin.site.register(User)
 admin.site.register(Organizer)
+admin.site.register(RequestEvent)
 

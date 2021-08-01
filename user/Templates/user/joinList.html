@@ -28,12 +28,13 @@
             </tr>
         </thead>
         {% for i in obj %}
+            {% for x in obj2 %}
             <tr>
                 <td>{{i.username}}</td>
-                <td>{{i.eventName}}</td>
-                <td><input type="checkbox" name="check">Accept<input type="checkbox" name="check">Reject</td>
-                <td><button>Accept</button>&nbsp;<button>Deny</button></td>
+                <td>{{x.eventName}}</td>
+                <td><button name="acceptBtn">Accept</button>&nbsp;<button name="rejectBtn">Deny</button></td>
             </tr>
+            {% endfor %}
         {% endfor %}
     </table>
 </body>
