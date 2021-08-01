@@ -87,8 +87,8 @@ def joinEventView(request, id, user):
 
     if request.method == 'POST':
         requestForm = RequestEvent(status=False, username=username, eventID=event)
-
         requestForm.save()
+        messages.error(request, "Request Sent")
         return render(request, 'user/joinEvent.html', context)
 
     return render(request, 'user/joinEvent.html', context)
