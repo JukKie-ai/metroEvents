@@ -51,13 +51,12 @@ class organizedEventsView(View):
 
         return render(request, self.template_name, {'obj':obj, 'account': account})
 
-    #def post(self, request, id):
-    #    if request.method == 'POST':
-    #        if 'btnDelete' in request.POST:
-    #            event = request.POST.get("event_id")
-    #            delete_request = RequestRole.objects.filter(eventID = event).delete()
-    #
-    #    return render(request, self.template_name)
+def delete(request, id, user):
+    event = Event.objects.get(pk=id)
+    context = {'user':user, 'event': event}
+    event.delete()
+
+    return render(request, 'user/organizedEvents.html', context)
         
 class createEventView(View):
     template_name = "user/createEvent.html"

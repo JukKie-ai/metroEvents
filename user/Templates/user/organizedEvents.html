@@ -32,11 +32,8 @@
             {% for i in obj %}
             <tr>
                 <td>{{i.eventName}}</td>
-                {% if account != 0 %}
                 <td><a href="updateEvent/{{i.eventID}}"><button class="buttonorange">EDIT EVENT</button></a></td>
-                {% endif %}
-                {% csrf_token %}
-                <td><input type="submit" value="DELETE"/></td>
+                <td><a href="delete/{{i.eventID}}"><button class="buttonred">CANCEL EVENT</button></a></td>
             </tr>
             {% endfor %}
     </table>
